@@ -1,5 +1,3 @@
-import math
-
 T = int(input())
 
 for t in range(T) :
@@ -12,7 +10,7 @@ for t in range(T) :
 
         arr += Ci * Ki
 
-    print(f'#{T}')
+    print(f'#{t+1}')
 
     for j in range ((len(arr)//10)+1) :
         if j >= (len(arr)//10) :
