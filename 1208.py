@@ -5,6 +5,8 @@ for i in range(10) :
 D = int(input())
 
 100 * 100 정렬
+max_list(input())
+min_list(input())
 
 def dump_num (num, max, min) :
     if max-min <= 1 or num == 0 :
