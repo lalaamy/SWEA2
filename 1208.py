@@ -1,22 +1,24 @@
-
 for i in range(10) :
     print(f'#{i+1}')
 
 D = int(input())
 
-100 * 100 정렬
-max_list(input())
-min_list(input())
 
-def dump_num (num, max, min) :
-    if max-min <= 1 or num == 0 :
-        return max-min
+T = list(map(int, input().split()))
+Max_num = max(T)
+Min_num = min(T)
+
+
+
+def dump_num (num, Max_num, Min_num) :
+    if Max_num-Min_num <= 1 or num == 0 :
+        return Max_num - Min_num
 
     else :
-        max_after = max-1
-        min_after = min+1
+        max_after = Max_num -1
+        min_after = Min_num +1
         return dump_num(num-1, max_after, min_after)
     
-print(f'#{i+1}', dump_num(D, max_list, min_list))
+print(f'#{i+1}', dump_num(D, Max_num, Min_num))
 
 
