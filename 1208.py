@@ -19,3 +19,19 @@ for i in range(1, 11) :
     print(f'#{i}', dump_num(D, Max_num, Min_num))
 
 
+# 필요 Data
+
+# 덤프 수 : N
+# 박스들의 높이 저장(길이 100) : boxes
+# 덤프 마다의 최대값 : max_height
+# 덤프 마다의 최소값 : min_height
+# 덤프 마다의 최대값 인덱스 : max_idx
+# 덤프 마다의 최소값 인덱스 : min_idx
+
+# 구조
+# 덤프 수 만큼 반복(N)
+    # 덤프 작업이란?
+    # ㄱ. 최대값, 최소값 구하고 해당 위치 저장(max_h, min_h)
+    # ㄴ. 최대값에서 -1, 최소값에서 +1(boxes[max_idx], boxes[min_idx])
+    # ㄷ. 단, 평탄화가 이뤄졌다면 덤프를 중단 > break
+    #     평탄화란? > |최소-최대| <= 1
