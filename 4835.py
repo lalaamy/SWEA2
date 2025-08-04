@@ -1,12 +1,14 @@
 T = int(input())
 
 for t in range(1, T+1):
-    N, M = map(int, input().split())
-    lst = list(map(int, input().split()))
-    for n in range(N-2) :
-        # max_sum = 0
-        # min_sum = 0
-        for m in range(M):
-            max_sum = int(max(sum(lst[m:m+3])))
-            min_sum = int(min(sum(lst[m:m+3])))
+    N, M = list(map(int, input().split()))
+    v = list(map(int, input().split()))
+    max_sum = sum(v[0:M])
+    min_sum = sum(v[0:M])
+    for i in range(N-M+1) :
+        v_sum = sum(v[i:i+M])
+        if v_sum > max_sum :
+            max_sum = v_sum
+        if v_sum < min_sum :
+            min_sum = v_sum
     print (f'#{t} {max_sum - min_sum}')
