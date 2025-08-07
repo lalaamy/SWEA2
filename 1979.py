@@ -45,22 +45,26 @@ for t in range(1, T+1) :
 
     arr= [list(map(int, input().split())) for _ in range(N)]
 
-    j_count = 0
+    result = 0
     for i in range (N) :
+        count = 0
         for j in range(N-K+1):
             K_i = (arr[i][x] for x in range (j, j+K))
             if K_i == [1]*K :
                 if (j == 0 or arr[i][j-1] == 0) and (j+K == N or arr[i][j+K] == 0) :
-                    j_count += 1
-                continue
+                    count += 1
+                
+        if count == K :
+            result += 1
     
-    i_count = 0
     for j in range(N) :
+        count = 0
         for i in range(N-K+1) :
             K_j = (arr[x][j] for x in range (i, i+K))
             if K_j == [1]*K :
                 if (i == 0 or arr[i-1][j] == 0) and  (i+K == N or arr[i+K][j] == 0) :
-                    i_count += 1
-                continue
+                    count += 1
+        if count == K :
+            result += 1       
     
-    print (f'#{t} {i_count+j_count}')
+    print (f'#{t} {count}')
