@@ -36,3 +36,37 @@ for t in range(1, 11):
                 continue
 
     print (f'#{t} {now_j}')
+
+
+## 강사님 풀이
+
+dr = [-1, 0, 0]
+dc = [0, -1, 1]
+
+search_dir = [[1,2,0], [0,1], [0,2]]
+# 위를 볼 때는 왼쪽, 오른쪽 보고 위를 보기
+# 왼쪽을 볼 때는 
+
+T = 10
+for t in range(1, T+1):
+    input()
+    ladder = [list(map(int, input().split())) for _ in range(100)]
+    r = 99
+    c = ladder[99].index(2)
+
+    dir = 0
+    while r > 0 :
+
+        for i in range(len(search_dir[dir])):
+            # 다음 방향이 가능한 거 보기
+            next_dir = search_dir[dir][i]
+            next_r = r + dr[next_dir]
+            next_c = c + dc[next_dir]
+        
+            if 0 <= next_c < 100 and ladder[next_r][next_c] == 1:
+                dir = next_dir
+                r = next_r
+                c = next_c
+                break
+            
+    print (f'#{t} {c}')
