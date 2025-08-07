@@ -1,12 +1,30 @@
 T = int(input())
 
-for t in range(1, T+1) :
+for t in range(1, T+1):
+    N = int(input())
+    arr = [[0]*N for _ in range(N)]
 
-    result = 1
+    dx = [0, 1, 0, -1]
+    dy = [1, 0, -1, 0]
 
-    for n in range(3) :
-        for i in range(N) :
-            for di, dj in [[-1,0], [1,0], [0,-1], [0,1]] :
-                if n % 2 == 0 :
-                    arr[0*di][i*dj] = result
-                    
+    x, y, d = 0, 0, 0
+    num = 1
+
+    for _ in range (N*N) :
+        arr[nx][ny] = num
+        num += 1
+
+        nx = x + dx[d]
+        ny = y + dy[d]
+
+        if nx < 0 or ny < 0 or nx >= N or ny >= N or num > N*N :
+            # 방향 전환
+            d = (d + 1) % 4
+            nx = x + dx[d]
+            ny = y + dy[d]
+        
+        x, y = nx, ny
+    
+    print(f'#{t}')
+    for row in arr :
+        print(*row)
