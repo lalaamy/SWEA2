@@ -28,4 +28,3 @@ for t in range(T) :
     #         print (*arr [i*10:i*10+10], sep="")
 
 
-

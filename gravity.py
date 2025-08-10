@@ -14,11 +14,11 @@ for t in range(T) : # 테스트 케이스 만큼 반복한다
     arr_copy = bubble_sort(arr, len(arr)) # 오름차순 정렬을 만든다. 원본 arr은 그대로
 
     max_idx = 0
-    for a in range(len(arr)) : 
+    for a in range(arr_len) : 
         for copy_a in range(len(arr_copy)) :
-            if arr[a] == arr_copy[copy_a] :
-                idx = copy_a - a
-                if idx > max_idx :
+            if arr[a] == arr_copy[copy_a] : # 원래 있던 높이와 낙하 후 같은 높이의 상자가 있다면
+                idx = copy_a - a # 그것을 낙차로 보고 차이를 구한다.
+                if idx > max_idx : # 그게 가장 큰 것을 max로 치환한다.
                     max_idx = idx
                 break
     print (f'#{t+1} {max_idx}')

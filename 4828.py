@@ -11,3 +11,14 @@ for t in range(1, T+1) :
         if min_int > n :
             min_int = n
     print (f'#{t} {max_int - min_int}')
+
+
+
+
+
+T = int(input())
+
+for t in range(1, T+1) :
+    N = int(input())
+    N_arr = list(map(int, input().split()))
+    print (max(N_arr) - min(N_arr))
