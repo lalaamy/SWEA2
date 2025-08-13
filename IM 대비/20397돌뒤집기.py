@@ -7,18 +7,22 @@ for t in range (1, T+1) :
     for m in range (M) :
         i, j = map(int, input().split())
 
-        stand = arr[i]
+        stand = i - 1
 
-        for plus in range(j) :
-            plus_under = arr[i-j]
-            plus_over = arr[i+j]
+        for plus in range(1, j+1) :
+            plus_under = i-1 -plus
+            plus_over = i-1 +plus
 
-            if plus_under == plus_over :
-                if plus_under == 1 :
-                    plus_under = plus_over = 0
+            if 0 <= plus_under < N and 0 <= plus_over < N :
+                if arr[plus_under] == arr[plus_over] :
+                    if arr[plus_under] == 1 :
+                        arr[plus_under] = arr[plus_over] = 0
+                    else :
+                        arr[plus_under] = arr[plus_over] = 1
                 else :
-                    plus_under = plus_over = 1
-            else :
-                pass
+                    pass
 
-    print (f'#{t} {arr}')
+    print (f'#{t}', end=' ')
+    for row in arr :
+        print (row, end= " ")
+    print()
