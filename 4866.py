@@ -10,8 +10,8 @@ for t in range(1, T+1) :
 
     for x in txt :
         if x in ['(', '{'] :
-            top += 1
-            stack[top] = x
+            top += 1 # 탑 수 늘려주고
+            stack[top] = x # 그 탑에 그 괄호 넣어주기
         if x in [')', '}'] :
             if top == -1 :
                 ans = 0
