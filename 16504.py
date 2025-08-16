@@ -1,29 +1,24 @@
-def bubble_sort(a) :
+def bubble_sort(a, N) :
     a_copy = a[:]
-    for n in range((len(arr)-1), 0, -1) :
-        for i in range(n) :
-            if a_copy[i] > a_copy[i+1] :
-                a_copy[i], a_copy[i+1] = a_copy[i+1], a_copy[i]
-    
+    for i in range(N-1, 0, -1):
+        for j in range(i) :
+            if a_copy[j] > a_copy[j+1]:
+                a_copy[j], a_copy[j+1] = a_copy[j+1], a_copy[j]
     return a_copy
-
 
 T = int(input())
 
-for t in range(1, T+1) :
-    N = int(input())
-    arr = list(map(int, input().split()))
-    arr_copy = bubble_sort(arr)
+for t in range(T) : # 테스트 케이스 만큼 반복한다
+    arr_len = int(input()) # 가로 길이를 입력한다.
+    arr = list(map(int, input().split())) # 상자 리스트를 입력한다.
+    arr_copy = bubble_sort(arr, len(arr)) # 오름차순 정렬을 만든다. 원본 arr은 그대로
 
-    max_fall = 0
-
-    for n in range(N) :
-        for i in range(N):
-            if arr[n] == arr_copy[i] :
-                fall = abs(i - n)
-            
-                if max_fall < fall :
-                    max_fall = fall
+    max_idx = 0
+    for a in range(len(arr)) : 
+        for copy_a in range(len(arr_copy)) :
+            if arr[a] == arr_copy[copy_a] :
+                idx = copy_a - a
+                if idx > max_idx :
+                    max_idx = idx
                 break
-        
-    print (f'#{t} {max_fall}')
+    print (f'#{t+1} {max_idx}')
