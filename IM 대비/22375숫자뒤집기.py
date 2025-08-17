@@ -2,19 +2,16 @@ T = int(input())
 
 for t in range(1, T+1) :
     N = int(input())
-    switch = list(map(int, input().split()))
-    main = list(map(int, input().split()))
+    A_switches = list(map(int, input().split()))
+    B_switches = list(map(int, input().split()))
 
     count = 0
-    for i in range(len(switch)) :
-        if switch[i] == main[i] :
+    for i in range(len(A_switches)) :
+        if A_switches[i] == B_switches[i] :
             continue
         else :
+            for j in range(i, len(A_switches)) :
+                A_switches[j] = 1 - A_switches[j]
             count += 1
-            for j in range(i, N):
-                if switch[j] == 0 :
-                    switch[j] = 1
-                elif switch[j] == 1 :
-                    switch[j] = 0
         
     print (f'#{t} {count}')
